@@ -9,8 +9,16 @@ const Home = () => {
 	const handleDelete = (contactId) => {
 		actions.deleteContact(contactId);
 	};
-
+	{Array.isArray(store.contacts) && store.contacts.length > 0 ? (
+		store.contacts.map(contact => (
+		  <div key={contact.id}>{contact.name}</div>
+		))
+	  ) : (
+		<p>No hay contactos aún.</p>
+	  )}
 	return (
+
+		
 		<div className="container mt-5">
 			<h1 className="text-center mb-4">📞 Contact List</h1>
 
